@@ -1,5 +1,7 @@
 # PSX_512 - notes 
 
+[Link to main page](Main_page.html)
+
 ## Lectures
 
 #### 1. Decision-Making & Irrationality
