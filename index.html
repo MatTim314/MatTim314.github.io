@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>index</title><link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -154,49 +154,161 @@ mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 
 
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
 :root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
 
 html {
-    font-size: 16px;
+	font-size: 16px;
 }
 
-body {
-    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
 }
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
 
 #write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
+	max-width: 40em;
 }
 
 @media only screen and (min-width: 1400px) {
 	#write {
-		max-width: 1024px;
+			max-width: 914px;
 	}
 }
 
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
 }
 
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
+ol,
+ul {
+	list-style: none;
 }
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
 
 a {
-    color: #4183C4;
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
 }
 h1,
 h2,
@@ -204,320 +316,421 @@ h3,
 h4,
 h5,
 h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
+	margin-bottom: 1.5em;
 }
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    padding-bottom: .3em;
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-   padding-bottom: .3em;
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
-}
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
-}
+/* blockquote */
 
-li p.first {
-    display: inline-block;
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
 }
+/* lists */
+
 ul,
 ol {
-    padding-left: 30px;
+	margin: 0 0 1.5em 1.5em;
 }
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
 }
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
-}
-blockquote blockquote {
-    padding-right: 0;
-}
+
 table {
-    padding: 0;
-    word-break: initial;
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
 }
-table tr {
-    border-top: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
 }
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
+th {
+	text-align: left;
 }
-table tr th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table tr td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table tr th:first-child,
-table tr td:first-child {
-    margin-top: 0;
-}
-table tr th:last-child,
-table tr td:last-child {
-    margin-bottom: 0;
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
 }
 
-.CodeMirror-lines {
-    padding-left: 4px;
-}
-
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
-}
-
-.md-fences,
 code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
+.md-fences {
+	background-color: #dadada;
 }
 
 code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
+	padding-left: 2px;
+	padding-right: 2px;
 }
 
 .md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
 }
 
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
 
-.md-task-list-item > input {
-  margin-left: -1.3em;
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
 }
 
-@media print {
-    html {
-        font-size: 13px;
-    }
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
-    pre {
-        word-wrap: break-word;
-    }
+p + ul,
+p + ol{
+	margin-top: .5em;
 }
 
-.md-fences {
-	background-color: #f8f8f8;
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
 }
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
 #write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
 }
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
+.md-image>.md-meta {
+	color: #9B5146;
 }
 
-.md-mathjax-midline {
-    background: #fafafa;
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
 }
+
 
 #write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
 }
 #write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
 }
 #write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
 }
 #write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
 }
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
     color: inherit;
 }
 
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
 }
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+.btn-default {
+	background-color: transparent;
 }
 
-.sidebar-tabs {
-    border-bottom: none;
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
 }
 
 #typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
+    background-color: inherit;
 }
 
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
+.md-diagram-panel {
+	margin-top: 8px;
 }
 
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
+.file-list-item-file-name {
+	font-weight: initial;
 }
 
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
+.file-list-item-summary {
+	opacity: 1;
 }
 
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
+.file-list-item {
+	color: #777;
 }
 
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
 }
 
-.md-lang {
-    color: #b4654d;
+.ty-side-sort-btn.active {
+	background-color: inherit;
 }
 
-.html-for-mac .context-menu {
-    --item-hover-bg-color: #E6F0FE;
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
 }
 
-#md-notification .btn {
-    border: 0;
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
 }
 
 .dropdown-menu .divider {
-    border-color: #e5e5e5;
+	border-color: #e5e5e5;
 }
 
-.ty-preferences .window-content {
-    background-color: #fafafa;
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
 }
 
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
 }
 
 
 </style>
 </head>
 <body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name="psx512---notes" class="md-header-anchor"></a><span>PSX_512 - notes </span></h1><h2><a name="lectures" class="md-header-anchor"></a><span>Lectures</span></h2><h3><a name="hmm" class="md-header-anchor"></a><span>hmm</span></h3><ol><li><h4><a name="decision-making--irrationality" class="md-header-anchor"></a><span>Decision-Making &amp; Irrationality</span></h4><ul><li><p><span>Key words: </span></p><ul><li><em><span>Crockery story</span></em><span> - Hsee, C. K. (1998). Less is better: When low value options are valued more highly than high value options</span></li><li><span>The evaluability hypothesis (&quot;The Dictionary Story&quot;)</span></li><li><em><span>Preference reversal</span></em><span> - change in preferences or evaluations even though the attributes of the objects remain the same.</span></li></ul><ul><li><p><em><span>Good vs bad memories</span></em></p></li><li><p><em><span>Availability heuristics</span></em><span> </span></p><ul><li><span>people rely on immediate examples that come to mind when considering a situation</span></li><li><span>people make decisions based on the immediate information</span></li><li><span>which information is processed is influenced by context (Kahneman colonoscopy - pain peaking in the end vs pain peaking in the middle)</span></li></ul></li><li><p><em><span>Control of decisions</span></em><span> - Ariely  </span></p><ul><li><span>Presence of worse option makes the first option seem better than it is</span></li><li><span>People are predictably unpredictable</span></li></ul></li><li><p><em><span>Planning Fallacy</span></em><span> - people tend to consider only best-case scenarios when planning and usually disregard &quot;statistics&quot; on actual success rate of previous similar attempts because unexpected events are not considered</span></p></li></ul></li><li><p><span>Summary: </span></p><ul><li><span>Our decisions and  behaviours are dependent on </span><strong><span>immediate</span></strong><span> cues previously associated with </span><em><span>motivational states</span></em><span> or </span><em><span>general human heuristic systems</span></em><span> rather than global judgement of advantages and disadvantages in different situations.</span></li></ul></li></ul></li><li><h4><a name="emotion-motivation-and-regulation-of-behaviour" class="md-header-anchor"></a><span>Emotion, motivation and regulation of behaviour</span></h4><ul><li><p><span>Misattribution of arousal </span></p><ul><li><span>Emotional experience = physiological changes (arousal) + cognitive interpretation of the situation</span></li><li><span>If a person is aroused he will attribute this arousal to the most &quot;meaningful&quot; interpretation available at the moment -&gt; risk of MoA</span></li></ul></li><li><p><span>Motivation</span></p></li><li><p><span>Priming = previously processed stimuli influence the processing of subsequent stimuli</span></p><ul><li><span>Hard to replicate, not conclusive</span></li></ul></li><li><p><span>Classical Conditioning </span></p><ul><li><p><span>Implication for humans = Cues in the environment previously associated </span></p><p><span>with motivational states will become triggers of those motivational states in the future regardless of whether the reward/punishment is present.</span></p></li></ul></li><li><p><span>Instrumental Learning</span></p><ul><li><span>Object and situations can trigger automatic behavioural respones == Habits.</span></li></ul></li><li><p><span>Emotion regulation</span></p><ul><li><p><span>It&#39;s easier to get rid of triggers than to actively battle them.</span></p><ol><li><span>Choose situation</span></li><li><span>Change situation</span></li><li><span>Divert attention</span></li><li><span>Change thinking - changing your outlook on a situation changes your physiological reaction as well</span></li><li><span>Act as if nothing happened</span></li></ol></li></ul></li><li><p><span>Ego depletion</span></p></li></ul></li><li><h4><a name="social-perception-and-social-influence" class="md-header-anchor"></a><span>Social perception and social influence</span></h4><ul><li><p><span>Behaviour = f ( Person, Enviroment)</span></p></li><li><p><span>Stanford Prison Experiment</span></p></li><li><p><span>Us vs them mentality </span></p><ul><li><em><a href='https://www.youtube.com/watch?v=1mcCLm_LwpE'><span>Class Divided</span></a></em><span> </span></li></ul></li><li><p><span>Self-fulfilling prophecy - </span></p><ul><li><p><img src="D:\D\Untitled.png" alt="SFP" style="zoom: 80%;" /></p><p>&nbsp;</p></li></ul></li><li><p><span>Milgram&#39;s obedience experiments</span></p><ul><li><span>Participants asked to administer shock to subject of questioning as a form of punishment</span></li><li><span>Problems: Experimenter bias, Selective reporting, Underestimated failed manipulation</span></li></ul></li><li><p><span>Bystander effect</span></p></li><li><p><span>Conformity</span></p></li><li><p><span>Irrationality in science</span></p><ol><li><span>Confirmation bias(&quot;Experimenter effect&quot;) - overstate supporting evidence, downplay other evidence</span></li><li><span>Congruence bias - looking for evidence supporting the theory and not the other way around</span></li><li><span>Observer-expectancy effect - subconscious manipulation of experiment to achieve desired result</span></li><li><span>Hindsight bias - modifying hypotheses after results</span></li><li><span>Availability heuristic - disregarding previous body of research</span></li><li><span>Publication bias - non-significant results not seen as publishable</span></li></ol></li></ul></li><li><h4><a name="social-perceptions-and-self-perceptions" class="md-header-anchor"></a><span>Social perceptions and self-perceptions</span></h4></li><li><h4><a name="human-perception-memory-and-thought" class="md-header-anchor"></a><span>Human perception, memory, and thought</span></h4></li><li><h4><a name="development-of-personality-and-pathology" class="md-header-anchor"></a><span>Development of personality and pathology</span></h4></li></ol><p>&nbsp;</p><h2><a name="final-task" class="md-header-anchor"></a><span>Final Task</span></h2><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-node'><h1><a name="psx512---notes" class="md-header-anchor"></a><span>PSX_512 - notes </span></h1><h2><a name="lectures" class="md-header-anchor"></a><span>Lectures</span></h2><h4><a name="1-decision-making--irrationality" class="md-header-anchor"></a><span>1. Decision-Making &amp; Irrationality</span></h4><ul><li><p><span>Key words: </span></p><ul><li><em><span>Crockery story</span></em><span> - Hsee, C. K. (1998). Less is better: When low value options are valued more highly than high value options</span></li><li><span>The evaluability hypothesis (&quot;The Dictionary Story&quot;)</span></li><li><em><span>Preference reversal</span></em><span> - change in preferences or evaluations even though the attributes of the objects remain the same.</span></li></ul><ul><li><p><em><span>Good vs bad memories</span></em></p></li><li><p><em><span>Availability heuristics</span></em><span> </span></p><ul><li><span>people rely on immediate examples that come to mind when considering a situation</span></li><li><span>people make decisions based on the immediate information</span></li><li><span>which information is processed is influenced by context (Kahneman colonoscopy - pain peaking in the end vs pain peaking in the middle)</span></li></ul></li><li><p><em><span>Control of decisions</span></em><span> - Ariely  </span></p><ul><li><span>Presence of worse option makes the first option seem better than it is</span></li><li><span>People are predictably unpredictable</span></li></ul></li><li><p><em><span>Planning Fallacy</span></em><span> - people tend to consider only best-case scenarios when planning and usually disregard &quot;statistics&quot; on actual success rate of previous similar attempts because unexpected events are not considered</span></p></li></ul></li><li><p><span>Summary: </span></p><ul><li><span>Our decisions and  behaviours are dependent on </span><strong><span>immediate</span></strong><span> cues previously associated with </span><em><span>motivational states</span></em><span> or </span><em><span>general human heuristic systems</span></em><span> rather than global judgement of advantages and disadvantages in different situations.</span></li></ul></li></ul><h4><a name="2-emotion-motivation-and-regulation-of-behaviour" class="md-header-anchor"></a><span>2. Emotion, motivation and regulation of behaviour</span></h4><ul><li><p><span>Misattribution of arousal </span></p><ul><li><span>Emotional experience = physiological changes (arousal) + cognitive interpretation of the situation</span></li><li><span>If a person is aroused he will attribute this arousal to the most &quot;meaningful&quot; interpretation available at the moment -&gt; risk of MoA</span></li></ul></li><li><p><span>Motivation</span></p></li><li><p><span>Priming = previously processed stimuli influence the processing of subsequent stimuli</span></p><ul><li><span>Hard to replicate, not conclusive</span></li></ul></li><li><p><span>Classical Conditioning </span></p><ul><li><p><span>Implication for humans = Cues in the environment previously associated </span></p><p><span>with motivational states will become triggers of those motivational states in the future regardless of whether the reward/punishment is present.</span></p></li></ul></li><li><p><span>Instrumental Learning</span></p><ul><li><span>Object and situations can trigger automatic behavioural respones == Habits.</span></li></ul></li><li><p><span>Emotion regulation</span></p><ul><li><p><span>It&#39;s easier to get rid of triggers than to actively battle them.</span></p><ol><li><span>Choose situation</span></li><li><span>Change situation</span></li><li><span>Divert attention</span></li><li><span>Change thinking - changing your outlook on a situation changes your physiological reaction as well</span></li><li><span>Act as if nothing happened</span></li></ol></li></ul></li><li><p><span>Ego depletion</span></p></li></ul><h4><a name="3-social-perception-and-social-influence" class="md-header-anchor"></a><span>3. Social perception and social influence</span></h4><ul><li><p><span>Behaviour = f ( Person, Enviroment)</span></p></li><li><p><span>Stanford Prison Experiment</span></p></li><li><p><span>Us vs them mentality </span></p><ul><li><em><a href='https://www.youtube.com/watch?v=1mcCLm_LwpE'><span>Class Divided</span></a></em><span> </span></li></ul></li><li><p><span>Self-fulfilling prophecy - </span></p><ul><li><p><img src="https://i.imgur.com/JiGTKfU.png" alt="SFP" style="zoom: 80%;" /></p><p>&nbsp;</p></li></ul></li><li><p><span>Milgram&#39;s obedience experiments</span></p><ul><li><span>Participants asked to administer shock to subject of questioning as a form of punishment</span></li><li><span>Problems: Experimenter bias, Selective reporting, Underestimated failed manipulation</span></li></ul></li><li><p><span>Bystander effect</span></p><ul><li><span>Diffusion of responsibility - expectation that help will come from elsewhere</span></li><li><span>Similar to SFP</span></li></ul></li><li><p><span>Social facilitation vs social loafing</span></p><ul><li><p><span>&quot;More people are pulling the rope, less effort is individual giving&quot;</span></p></li><li><p><span>SF </span></p><ul><li><span>Competition</span></li><li><span>Self-presentation</span></li><li><span>Feedback - comparison</span></li><li><span>Since enviroment is competitive it has </span><em><span>negative</span></em><span> effect on people with low self-esteem and social anxiety</span></li></ul></li><li><p><span>SL </span></p><ul><li><span>Cooperation</span></li><li><span>Coordination loss</span></li><li><span>Motivation loss = belief my contribution is dispensable</span></li></ul></li><li><p><span>Aspect determining SF vs SL:</span></p><ol><li><span>Evaluation of individual efforts</span></li><li><span>Evaluation apprehension </span></li></ol></li></ul></li><li><p><span>Conformity - Asch. S.E.(1955) - Simple question about line length - only one real participant, rest are dummies who mark the wrong answer, participant also marks the wrong answer if he&#39;d be the only one = </span><strong><span>he conforms</span></strong></p></li><li><p><span>Irrationality in science</span></p><ol><li><p><span>Confirmation bias(&quot;Experimenter effect&quot;) - overstate supporting evidence, downplay other evidence</span></p></li><li><p><span>Congruence bias - looking for evidence supporting the theory and not the other way around</span></p></li><li><p><span>Observer-expectancy effect - subconscious manipulation of experiment to achieve desired result</span></p></li><li><p><span>Hindsight bias - modifying hypotheses after results (post-hoc) </span></p><p><span>						</span><span>  - &quot;Texas Sharpshooter&quot;</span></p></li><li><p><span>Availability heuristic - disregarding previous body of research</span></p></li><li><p><span>Publication bias - non-significant results not seen as publishable</span></p></li></ol></li></ul><h4><a name="4-social-perceptions-and-self-perceptions" class="md-header-anchor"></a><span>4. Social perceptions and self-perceptions</span></h4><ul><li><p><em><span>Hindsight bias</span></em><span> = tendency to perceive the already-know outcomes of an event as much more predictable than they were + feeling of knowing the outcome beforehand</span></p><ul><li><p><span>Bias persists even if the participants are well informed about odds</span></p></li><li><p><span>Three levels - </span></p><ol><li><span>Predictability - Self-serving bias ???</span></li><li><span>Inevitability - Seeing the event chain makes us unable to un-see</span></li><li><span>Memory distortion - We simply dont remember correctly all the facts, constructive nature of memory, false remembering</span></li></ol></li></ul></li><li><p><em><span>Cognitive dissonance</span></em></p><ul><li><span>When two counteracting beliefs are acted simultaneously it creates dissonance we try to solve. </span></li><li><span>When our </span><em><span>conduct</span></em><span> and our </span><em><span>beliefs</span></em><span> clash, often will the beliefs change to </span><em><span>conform</span></em><span> (or explain) our conduct. Many times this manifests in the form of excuses like &quot;Its for the greater good&quot; or &quot;No one will know&quot;, especially when the conduct is immoral or otherwise wrong.</span></li></ul></li><li><p><em><span>Fundamental attribution error</span></em><span> - &quot;I did something wrong because of the situation i was in and others did something wrong because they are like that&quot; = tendency for people to under-emphasize situational explanations for an individual&#39;s observed behavior while over-emphasizing dispositional and personality-based explanations for their behavior</span></p><figure><table><thead><tr><th>&nbsp;</th><th><span>Me</span></th><th><span>Others</span></th></tr></thead><tbody><tr><td><span>Positive behaviour</span></td><td><span>Trait</span></td><td><span>Situation</span></td></tr><tr><td><span>Negative behaviour</span></td><td><span>Situation</span></td><td><span>Traiut</span></td></tr></tbody></table></figure><p>&nbsp;</p></li><li><p><em><span>Self-serving bias</span></em><span> - collecting/perceiving information in a way to support our pre-existing views or self interest</span></p></li><li><p><em><span>Barnum effect</span></em><span> - perceiving general statements as tailored specifically to an individual on personal level (e.g. horoscopes, personality tests )</span></p><ul><li><span>Generality of interpretation = true of almost all people but allow &quot;projection&quot; of many different experiences that are unique</span></li><li><span>Interpretation presented as personalized = people fail to think about generality of statements when they are presented as personal descriptions</span></li><li><span>Favourability = statements suggesting positive traits</span></li><li><span>Revelations =</span></li></ul></li><li><p><em><span>Halo effect</span></em><span> = tendency of our first impression of a person to &quot;frame&quot; our global impression of him/her in the future (for example good looking people are perceived as good with no evidence)</span></p></li><li><p><em><span>False consensus effect</span></em><span> - tendency to overestimate how much other people agree with us, viewing our values and ides as &quot;normal&quot;</span></p></li><li><p><strong><span>Conclusion</span></strong><span>: knowledge of biases helps us be more honest but its demanding to be constantly aware of all these things and therefore biases may serve as heuristics - &#39;just in case&#39; judgments if information processing is limited </span></p></li></ul><h4><a name="5-human-perception-memory-and-thought" class="md-header-anchor"></a><span>5. Human perception, memory, and thought</span></h4><ul><li><span>Interrogation - contamination of memory occur when feeding people misinformation leading to false testimonies</span></li><li><span>Planting of false memories - success ranging from 25% - 50%</span></li><li><span>Inattentional blindness - occurs when attention is not drawn to the stimuli at the moment of change</span></li></ul><h4><a name="6-development-of-personality-and-pathology" class="md-header-anchor"></a><span>6. Development of personality and pathology</span></h4><p>&nbsp;</p><h2><a name="final-task" class="md-header-anchor"></a><span>Final Task</span></h2><p>&nbsp;</p></div>
 </body>
 </html>

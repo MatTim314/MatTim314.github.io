@@ -159,6 +159,10 @@
 
 #### 5. Human perception, memory, and thought
 
+* Interrogation - contamination of memory occur when feeding people misinformation leading to false testimonies
+* Planting of false memories - success ranging from 25% - 50%
+* Inattentional blindness - occurs when attention is not drawn to the stimuli at the moment of change
+
 #### 6. Development of personality and pathology
 
 
