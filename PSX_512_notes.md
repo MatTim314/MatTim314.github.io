@@ -1,6 +1,6 @@
 # PSX_512 - notes 
 
-[Link to main page](Main_page.html)
+[Link to main page](index.html)
 
 ## Lectures
 
